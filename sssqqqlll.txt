@@ -1,0 +1,76 @@
+﻿SELECT student,City FROM college;
+---------------------------
+
+
+
+UPDATE student
+SET ContactName='Rasul'
+WHERE Country='afghanestan';
+
+
+
+DELETE FROM student WHERE studentName='iman shire';
+
+
+
+INSERT INTO students (studentName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+
+
+
+------------------------------
+
+SELECT Orders.OrderID, students.studentName
+FROM Orders
+INNER JOIN students ON Orders.studentID = students.studentID;
+
+
+SELECT students.studentName, Orders.OrderID
+FROM students
+LEFT JOIN Orders ON students.studentID = Orders.studentID
+ORDER BY students.studentName;
+
+
+SELECT Orders.OrderID, student.LastName, student.FirstName
+FROM Orders
+RIGHT JOIN student ON Orders.EmployeeID = student.EmployeeID
+ORDER BY Orders.OrderID;
+
+SELECT Orders.OrderID, students.studentName, Orders.OrderDate
+FROM Orders
+INNER JOIN students ON Orders.studentID=students.studentID;
+----------------------------------------------------------
+
+
+SELECT SupplierName
+FROM Suppliers
+WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price < 20);
+-------------------------------------------------------
+
+SELECT COUNT(score)
+FROM table_name;
+---------------------------------------
+
+SELECT score(s)
+FROM table_name
+GROUP BY score(s)
+----------------------------------------------
+
+SELECT score(s)
+FROM table_name
+HAVING condition;
+-------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
